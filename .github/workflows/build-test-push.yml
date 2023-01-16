@@ -13,11 +13,11 @@ jobs:
 
       # Build Image
       - name: Build Docker Image
-        run: docker build . --file Dockerfile -t macmie2411999/ma-staffmember-service:latest
+        run: docker build . --file Dockerfile -t macmie2411999/ma-product-service:latest
 
       # Test container
       - name: Run Docker Container
-        run: docker run -p 8000:80 -d macmie2411999/ma-staffmember-service:latest
+        run: docker run -p 8000:80 -d macmie2411999/ma-product-service:latest
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -34,4 +34,4 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Push tag to Docker Hub
-        run: docker push macmie2411999/ma-staffmember-service:latest
+        run: docker push macmie2411999/ma-product-service:latest
